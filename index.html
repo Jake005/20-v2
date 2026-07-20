@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0718">
+  <title>20 — Pentru tine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <canvas id="stars"></canvas>
+  <div id="warpTransition" class="warp-transition" aria-hidden="true"><div class="warp-core"></div></div>
+
+  <header class="header">
+    <a class="logo warp-link" href="#intro">C <span>✦</span> D</a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Deschide meniul" aria-expanded="false" aria-controls="mainNav"><span></span><span></span><span></span></button>
+    <nav id="mainNav">
+      <a class="warp-link" href="#universul-ei">Universul ei</a>
+      <a class="warp-link" href="#vis">Visul</a>
+      <a class="warp-link" href="#inima">Inimă</a>
+      <a class="warp-link" href="#harta">Harta</a>
+      <a class="warp-link" href="#constelatie">Constelație</a>
+      <a class="warp-link" href="#floare">Floare</a>
+      <a class="warp-link" href="#carte">Carte</a>
+      <a class="warp-link" href="#portal">Portal</a>
+      <a class="warp-link" href="#final">Final</a>
+    </nav>
+  </header>
+
+  <main id="siteContent">
+    <section class="intro" id="intro">
+      <div class="planet-side planet-side-left" aria-hidden="true"><div class="planet planet-left"><span></span></div></div>
+      <div class="intro-copy">
+        <p class="overline">20 de ani</p>
+        <h1>Într-un univers plin de lumină,<br><em>tu ești punctul meu de reper.</em></h1>
+        <p class="lead">Nu am vrut să-ți fac doar un site. Am vrut să-ți las un loc al nostru, făcut din lucrurile mici pe care nu vreau să le uit.</p>
+        <a href="#universul-ei" class="button warp-link">Începe călătoria</a>
+      </div>
+      <div class="planet-side planet-side-right" aria-hidden="true"><div class="planet planet-right"><span></span></div></div>
+    </section>
+
+    <section class="universe-section" id="universul-ei" data-warp-section>
+      <div class="universe-copy">
+        <p class="overline">01 — Universul ei</p>
+        <h2>Tot ce o face specială are propria orbită.</h2>
+        <p>Atinge fiecare simbol. Universul se va opri pentru o clipă și îți va arăta ce înseamnă.</p>
+      </div>
+      <div class="universe-stage" id="universeStage">
+        <div class="universe-glow"></div>
+        <div class="main-planet"><div class="planet-cloud cloud-a"></div><div class="planet-cloud cloud-b"></div><span>20</span></div>
+        <div class="orbit-ring orbit-ring-1"></div><div class="orbit-ring orbit-ring-2"></div><div class="orbit-ring orbit-ring-3"></div>
+        <button class="orbit-item item-1" data-title="Love" data-message="Felul în care iubești face orice loc să pară acasă."><b>♥</b><span>Love</span></button>
+        <button class="orbit-item item-2" data-title="Dreams" data-message="Ai curajul să visezi mai departe decât văd ceilalți."><b>☾</b><span>Dreams</span></button>
+        <button class="orbit-item item-3" data-title="Kindness" data-message="Blândețea ta nu este fragilitate. Este una dintre puterile tale."><b>✿</b><span>Kindness</span></button>
+        <button class="orbit-item item-4" data-title="Coffee" data-message="Până și cele mai simple momente devin amintiri lângă tine."><b>☕</b><span>Coffee</span></button>
+        <button class="orbit-item item-5" data-title="Freedom" data-message="Nu te opri niciodată din a deveni cine simți că ești."><b>🦋</b><span>Freedom</span></button>
+        <button class="orbit-item item-6" data-title="Music" data-message="Ai un ritm al tău care schimbă atmosfera din jur."><b>♪</b><span>Music</span></button>
+        <button class="orbit-item item-7" data-title="Magic" data-message="Magia ta este felul în care faci lucrurile obișnuite să conteze."><b>✦</b><span>Magic</span></button>
+        <button class="orbit-item item-8" data-title="Story" data-message="Cele mai frumoase capitole ale tale încă nu au fost scrise."><b>✧</b><span>Story</span></button>
+        <div class="orbit-message" id="orbitMessage"><small>Universul ei</small><h3>Alege o orbită</h3><p>Fiecare simbol ascunde un mesaj.</p></div>
+      </div>
+    </section>
+
+    <section class="cathedral-section" id="vis" data-warp-section>
+      <div class="cathedral-copy">
+        <p class="overline">02 — Catedrala de lumină</p>
+        <h2>Uneori, lumina nu apare la capătul drumului. Se construiește în jurul tău.</h2>
+        <p>Derulează încet. Arcadele se aliniază, aurora se aprinde, iar camera înaintează printr-un coridor cosmic către mesajul ascuns.</p>
+        <div class="scroll-hint">Intră în lumină ↓</div>
+      </div>
+      <div class="cathedral-sticky" id="cathedralSticky">
+        <canvas id="cathedralCanvas"></canvas>
+        <div class="aurora aurora-a"></div><div class="aurora aurora-b"></div><div class="aurora aurora-c"></div>
+        <div class="cathedral-depth" id="cathedralDepth">
+          <div class="light-arch" style="--i:0"></div><div class="light-arch" style="--i:1"></div><div class="light-arch" style="--i:2"></div><div class="light-arch" style="--i:3"></div><div class="light-arch" style="--i:4"></div><div class="light-arch" style="--i:5"></div><div class="light-arch" style="--i:6"></div><div class="light-arch" style="--i:7"></div><div class="light-arch" style="--i:8"></div>
+          <div class="cathedral-message" id="cathedralMessage"><small>DINCOLO DE TOT</small><strong>Tu faci lumea<br>mai luminoasă.</strong><span>✦</span></div>
+        </div>
+        <div class="cathedral-floor"></div>
+        <div class="cathedral-caption" id="cathedralCaption">Prima arcadă</div>
+      </div>
+    </section>
+
+    <section class="heart-universe-section" id="inima" data-warp-section>
+      <div class="heart-copy"><p class="overline">03 — Din inimă</p><h2>Un univers întreg construit dintr-o singură inimă.</h2><p>Derulează lent. Particulele vor trece prin fiecare formă până ajung la mesajul vostru.</p></div>
+      <canvas id="heartUniverseCanvas"></canvas>
+      <div id="heartStageLabel" class="heart-stage-label">INIMĂ</div>
+    </section>
+
+    <section class="map-section section" id="harta" data-warp-section>
+      <div class="section-number">04</div><div class="map-heading"><div><p class="overline">Harta noastră — Timișoara</p><h2>Locurile care au devenit amintiri.</h2></div><p>Harta este complet interactivă: se poate mișca, mări și apăsa pe fiecare loc.</p></div>
+      <div class="map-layout"><div id="map"></div><aside class="places">
+        <button data-lat="45.7556" data-lng="21.2287" data-zoom="16"><span>01</span><div><strong>Piața Unirii</strong><small>Adaugă povestea voastră de aici.</small></div></button>
+        <button data-lat="45.7466" data-lng="21.2048" data-zoom="16"><span>02</span><div><strong>Parcul Rozelor</strong><small>O plimbare, un gest, un moment.</small></div></button>
+        <button data-lat="45.7534" data-lng="21.2257" data-zoom="16"><span>03</span><div><strong>Opera / Piața Victoriei</strong><small>Un loc care poate deveni capitol.</small></div></button>
+        <button data-lat="45.7435" data-lng="21.2118" data-zoom="15"><span>04</span><div><strong>Bega</strong><small>Un punct liniștit din povestea voastră.</small></div></button>
+      </aside></div>
+    </section>
+
+    <section class="constellation-section" id="constelatie" data-warp-section>
+      <div class="constellation-copy"><p class="overline">05 — Constelația noastră</p><h2>C &amp; D, desenate în stele.</h2><p>La scroll, mii de stele se adună, pulsează și formează constelația voastră.</p></div>
+      <canvas id="constellationCanvas"></canvas><div class="birthday-label">C &amp; D · HAPPY BIRTHDAY</div>
+    </section>
+
+
+    <section class="bloom-section" id="floare" data-warp-section>
+      <div class="bloom-copy"><p class="overline">06 — Înflorire</p><h2>La 20 de ani, încă înflorești în toate direcțiile.</h2><p>Petalele se deschid odată cu scroll-ul, iar în centrul florii apare lumina acestui nou capitol.</p></div>
+      <div class="bloom-sticky"><div class="bloom-aura"></div><div class="cosmic-flower" id="cosmicFlower"><div class="petal p1"></div><div class="petal p2"></div><div class="petal p3"></div><div class="petal p4"></div><div class="petal p5"></div><div class="petal p6"></div><div class="petal p7"></div><div class="petal p8"></div><div class="flower-core"><span>20</span></div></div><div class="bloom-line">Continuă să înflorești.</div></div>
+    </section>
+
+    <section class="letter section" id="scrisoare" data-warp-section><div class="section-number">07</div><div class="letter-card"><p class="overline">Pentru tine</p><h2>La 20 de ani, îți doresc să nu uiți niciodată cine ești.</h2><p>Să rămâi curajoasă. Să te alegi pe tine. Să îți păstrezi blândețea, dar să nu te micșorezi pentru nimeni. Și să știi că, indiferent unde ajungem, eu voi păstra cu mine felul în care ai făcut perioada asta din viața mea să conteze.</p></div></section>
+
+    <section class="book-section" id="carte" data-warp-section>
+      <div class="book-copy"><p class="overline">08 — Cartea noastră</p><h2>Unele povești nu se citesc. Se trăiesc.</h2><p>Derulează pentru a întoarce paginile.</p></div>
+      <div class="book-sticky">
+        <div class="book-light"></div>
+        <div class="book" id="storyBook">
+          <div class="book-cover book-back"></div>
+          <div class="book-page page-3"><div><small>CAPITOLUL III</small><h3>Mai departe</h3><p>Iar cea mai frumoasă parte încă nici nu a început.</p></div></div>
+          <div class="book-page page-2"><div><small>CAPITOLUL II</small><h3>Noi</h3><p>Din întâmplări mici s-a construit ceva ce merită păstrat.</p></div></div>
+          <div class="book-page page-1"><div><small>CAPITOLUL I</small><h3>Începutul</h3><p>Uneori, o singură persoană schimbă felul în care arată o perioadă întreagă din viață.</p></div></div>
+          <div class="book-cover book-front"><span>C ✦ D</span><small>OUR STORY</small></div>
+        </div>
+        <div class="book-progress"><span id="bookProgressFill"></span></div>
+      </div>
+    </section>
+
+
+    <section class="portal-section" id="portal" data-warp-section>
+      <div class="portal-copy"><p class="overline">09 — Dincolo de portal</p><h2>Nu doar îl deschizi. Intri prin el.</h2><p>Derulează încet. Portalul se apropie, spațiul se întinde, iar imaginea este absorbită în interior până când ultimul capitol apare din lumină.</p></div>
+      <div class="portal-sticky" id="portalSticky">
+        <canvas id="portalCanvas"></canvas>
+        <div class="portal-vignette"></div><div class="portal-flash" id="portalFlash"></div>
+        <div class="cosmic-portal" id="cosmicPortal">
+          <div class="portal-orbit po-1"></div><div class="portal-orbit po-2"></div><div class="portal-orbit po-3"></div>
+          <div class="portal-gate"><div class="portal-depth"></div><div class="portal-final-preview" id="portalPreview"><small>ULTIMUL CAPITOL</small><strong>La mulți ani.</strong><span>✦</span></div></div>
+        </div>
+        <div class="portal-caption" id="portalCaption">Portal închis</div><div class="portal-exit" id="portalExit"><div class="portal-exit-content"><small>ULTIMUL CAPITOL</small><strong>La mulți ani.</strong><span>✦</span></div></div>
+      </div>
+    </section>
+
+    <section class="final-section" id="final" data-warp-section><div class="final-content"><p class="overline">Ultimul capitol</p><h2>La mulți ani.</h2><p>Credeai că asta a fost tot?</p><button id="notAllButton" class="button button-light"><span>Deschide surpriza</span><i>✦</i></button></div></section>
+  </main>
+
+  <div class="reveal-finale" id="revealFinale" aria-hidden="true">
+    <canvas id="finaleCanvas"></canvas><div class="portal-ring ring-a"></div><div class="portal-ring ring-b"></div><div class="portal-ring ring-c"></div>
+    <button class="close-finale" id="closeFinale" aria-label="Închide">×</button>
+    <div class="finale-sequence"><p class="line line-1">Mai era un lucru.</p><p class="line line-2">Cel mai important.</p><h2 class="line line-3">Mulțumesc că exiști.</h2><p class="line line-4">Tu ești cea mai strălucitoare parte din universul meu.</p><div class="final-heart line line-5">♥</div><p class="signature line line-6">C ✦ D</p></div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
