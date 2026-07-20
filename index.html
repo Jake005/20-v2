@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0718">
+  <title>her 20</title>
+  <link rel="icon" type="image/svg+xml" href="FAVICON.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <canvas id="stars"></canvas>
+  <div id="warpTransition" class="warp-transition" aria-hidden="true"><div class="warp-core"></div></div>
+
+  <header class="header">
+    <a class="logo warp-link" href="#intro">C <span>✦</span> D</a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Deschide meniul" aria-controls="mainNav" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav id="mainNav">
+      <a class="warp-link" href="#universul-ei">Universul tau:3</a>
+      <a class="warp-link" href="#vis">tree :3</a>
+      <a class="warp-link" href="#inima">Inimă</a>
+      <a class="warp-link" href="#harta">Harta</a>
+      <a class="warp-link" href="#constelatie">Constelație</a>
+      <a class="warp-link" href="#floare">Floare</a>
+      <a class="warp-link" href="#carte">Carte</a>
+      <a class="warp-link" href="#portal">Portal</a>
+      <a class="warp-link" href="#final">Final</a>
+    </nav>
+    <div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
+  </header>
+
+  <main id="siteContent">
+    <section class="intro" id="intro">
+      <div class="planet-side planet-side-left" aria-hidden="true"><div class="planet planet-left"><span></span></div></div>
+      <div class="intro-copy">
+        <p class="overline">20 de ani</p>
+        <h1>Într-un univers plin de lumină,<br><em>tu ești cea mai straluctioare stea (and u mine).</em></h1>
+        <p class="lead">Nu am vrut să-ți fac doar un site. Am vrut să-ți fac ceva foarte special de care sa iti amintesti mereu, tot acest site e facut pentru tine my love, vreau sa iti amintesti de ziua ta de 20 de ani mereu in a good way.</p>
+        <a href="#universul-ei" class="button warp-link">Începe călătoria</a>
+      </div>
+      <div class="planet-side planet-side-right" aria-hidden="true"><div class="planet planet-right"><span></span></div></div>
+    </section>
+
+    <section class="universe-section" id="universul-ei" data-warp-section>
+      <div class="universe-copy">
+        <p class="overline">01 — Universul tau:3</p>
+        <h2>Esti cel mai scump suflet pe care l-am intalit vreodata.</h2>
+        <p>Touch any of these and o sa iti scrie ceva cute.</p>
+      </div>
+      <div class="universe-stage" id="universeStage">
+        <div class="universe-glow"></div>
+        <div class="main-planet"><div class="planet-cloud cloud-a"></div><div class="planet-cloud cloud-b"></div><span>20</span></div>
+        <div class="orbit-ring orbit-ring-1"></div><div class="orbit-ring orbit-ring-2"></div><div class="orbit-ring orbit-ring-3"></div>
+        <button class="orbit-item item-1" data-title="Love" data-message="Felul în care iubești ma face sa ma simt acasa you are the best."><b>♥</b><span>Love</span></button>
+        <button class="orbit-item item-2" data-title="Dreams" data-message="Ai curajul să visezi mai departe decât oricine am cunosut I am proud of you."><b>☾</b><span>Dreams</span></button>
+        <button class="orbit-item item-3" data-title="Kindness" data-message="Esti cel mai scump si cel mai bland suflet pe care l-am cunosut ever."><b>✿</b><span>Kindness</span></button>
+        <button class="orbit-item item-4" data-title="Coffee" data-message="You have A really good taste in coffee."><b>☕</b><span>Coffee</span></button>
+        <button class="orbit-item item-5" data-title="Freedom" data-message="Nu te opri niciodată din a deveni cine simți că ești."><b>🦋</b><span>Freedom</span></button>
+        <button class="orbit-item item-6" data-title="Music" data-message="Vocea ta e o muzica foarte cute dar u have a cute music taste too:3."><b>♪</b><span>Music</span></button>
+        <button class="orbit-item item-7" data-title="Magic" data-message="Esti magica, modul in care esti tu, tu, totul la tine :3."><b>✦</b><span>Magic</span></button>
+        <button class="orbit-item item-8" data-title="Story" data-message="Iubesc povestea noastră si te iubeșc pe tine mai mult ca orice pe lumea asta"><b>✧</b><span>Story</span></button>
+        <div class="orbit-message" id="orbitMessage"><small>Universul tau:3</small><h3>Alege un cerc :3</h3><p>Fiecare simbol ascunde un mesaj.</p></div>
+      </div>
+    </section>
+
+    <section class="cosmic-tree-section" id="vis" data-warp-section>
+      <div class="cosmic-tree-copy">
+        <p class="overline">02 — Tree :3</p>
+        <h2>Esti mai mult decat orice pe lumea asta,te iubesc si esti un inger venit pe pamanat.</h2>
+        <p>Exact asa cum creste pomul asta asa creste iubirea noastra si fericirea mea pentru ca te-am gasit pe tine.</p>
+        <div class="scroll-hint">scroll :3 ↓</div>
+      </div>
+      <div class="cosmic-tree-sticky" id="cosmicTreeSticky">
+        <canvas id="cosmicTreeCanvas"></canvas>
+        <div class="tree-aura tree-aura-a"></div>
+        <div class="tree-aura tree-aura-b"></div>
+        <div class="cosmic-tree-message" id="cosmicTreeMessage">
+          <small>DINTR-O SINGURĂ LUMINĂ</small>
+          <strong>Tu faci lumea<br>mai frumoasă.</strong>
+          <span>✦</span>
+        </div>
+        <div class="cosmic-tree-caption" id="cosmicTreeCaption">Sămânța</div>
+      </div>
+    </section>
+
+    <section class="heart-universe-section" id="inima" data-warp-section>
+      <div class="heart-copy"><p class="overline">03 — Din inimă</p><h2>Things can change but not my love for you</h2><p>Iubirea mea doar o sa creasca si o sa fie mereu mai mare si mai puternica</p></div>
+      <canvas id="heartUniverseCanvas"></canvas>
+      <div id="heartStageLabel" class="heart-stage-label">INIMĂ</div>
+    </section>
+
+    <section class="map-section section" id="harta" data-warp-section>
+      <div class="section-number">04</div><div class="map-heading"><div><p class="overline">Harta noastră — Timișoara</p><h2>Locurile care au devenit amintiri.</h2></div><p>Just move the map around it doesn't bite (but u do and I lvoe that).</p></div>
+      <div class="map-layout"><div id="map"></div><aside class="places">
+        <button data-lat="45.741056" data-lng="21.239417" data-zoom="16"><span>01</span><div><strong>FITT</strong><small>Locul where we first kissed, locul unde am fost binecuvantat cu un inger in viata mea.</small></div></button>
+        <button data-lat="45.7466" data-lng="21.2048" data-zoom="16"><span>02</span><div><strong>Bega</strong><small>Pe bega o gramada de momente speciale cu o persoana foarte speciala </small></div></button>
+        <button data-lat="45.7534" data-lng="21.2257" data-zoom="16"><span>03</span><div><strong>Parcul de la moara</strong><small>Our first date I loved it</small></div></button>
+        <button data-lat="45.7435" data-lng="21.2118" data-zoom="15"><span>04</span><div><strong>O strada random</strong><small>It's not about the place it's about the person. In acest caz TU!</small></div></button>
+      </aside></div>
+    </section>
+
+    <section class="constellation-section" id="constelatie" data-warp-section>
+      <div class="constellation-copy"><p class="overline">05 — US:3</p><h2>Desene in stele.</h2><p>Stelele se aduna pentru tine si pentru ca TU esti cea mai scumpa stea din lume.</p></div>
+      <canvas id="constellationCanvas"></canvas>
+    </section>
+
+
+    <section class="bloom-section" id="floare" data-warp-section>
+      <div class="bloom-copy"><p class="overline">06 — Înflorire</p><h2>La 20 de ani esti superba ca o floare.</h2><p>Esti din ce in ce mai superba in fiecare zi si nu exista persoana pe pamantul asa sa se poata compara cu frumusetea ta eterna si divina</p></div>
+      <div class="bloom-sticky"><div class="bloom-aura"></div><div class="cosmic-flower" id="cosmicFlower"><div class="petal p1"></div><div class="petal p2"></div><div class="petal p3"></div><div class="petal p4"></div><div class="petal p5"></div><div class="petal p6"></div><div class="petal p7"></div><div class="petal p8"></div><div class="flower-core"><span>20</span></div></div><div class="bloom-line">Continuă să înflorești.</div></div>
+    </section>
+
+    <section class="letter section" id="scrisoare" data-warp-section><div class="section-number">07</div><div class="letter-card"><p class="overline">Pentru tine</p><h2>La 20 sau la 30 sau la 40 sau la 70 sau chiar la Infinit.</h2><p>Să rămâi TU exact asa</p></div></section>
+
+    <section class="book-section" id="carte" data-warp-section>
+      <div class="book-copy"><p class="overline">08 —  book</p><h2>Unele povești nu se citesc. Se trăiesc.</h2><p>open :3</p></div>
+      <div class="book-sticky">
+        <div class="book-light"></div>
+        <div class="book" id="storyBook">
+          <div class="book-cover book-back"></div>
+          <div class="book-page page-3"><div><small>CAPITOLUL III</small><h3>Obvi ca tu again</h3><p>Lumea asta nu te merita pe tine. U deserve to be somewhere with other angels. Tu faci lumea asta un loc mai bun doar prin prezenta si prin existenta ta, esti cel mai bun lucru care exista si esti cea  mai stralucitoare stea and I will be here to help u shine. Esti Tu si meriti toata iubirea si toata dragostea din lume and even more.</p></div></div>
+          <div class="book-page page-2"><div><small>CAPITOLUL II</small><h3>TU</h3><p>Nu varsta te defineste cu nimic, nici cu frumusestea nici cu nimic, esti tu cea mai frumoasa si perfecta si divina persoana pe care o stiu. Sa nu te schimbi absolut nicioadata esti perfecta exact asa cum esti tu. Vreau sa stii ca si acum si in 10000 de ani o sa te vad la fel de perfecta. Astazi este totul despre TINE!</p></div></div>
+          <div class="book-page page-1"><div><small>CAPITOLUL I</small><h3>tu</h3><p>Esti singura persoana la care i-am vrut si o sa ii vreau mereu binele, sunt foarte fericit si mandru de tine ca esti astazi aici si ca esti tu exact asa cum esti. Esti o persoana buna esti cel mai bun suflet pe care lumea asta l-ar fi putut primi. Esti o persoana de care oricine ar trebuie sa se bucure ca esti parte din viata lor</p></div></div>
+          <div class="book-cover book-front"><span>C ✦ D</span><small>So much love for you</small></div>
+        </div>
+        <div class="book-progress"><span id="bookProgressFill"></span></div>
+      </div>
+    </section>
+
+
+    <section class="portal-section" id="portal" data-warp-section>
+      <div class="portal-copy"><p class="overline">09 — Esti un intreg univers</p><h2>Nu Esti doar o persoana. Esti un intreg univers si nu doar pentru mine</h2><p>luminezi zilele la foarte multa lume si foarte multe animale fara sa iti dai seama, esti cea mai scumpa din galaxie</p></div>
+      <div class="portal-sticky" id="portalSticky">
+        <canvas id="portalCanvas"></canvas>
+        <div class="portal-vignette"></div><div class="portal-flash" id="portalFlash"></div>
+        <div class="cosmic-portal" id="cosmicPortal">
+          <div class="portal-orbit po-1"></div><div class="portal-orbit po-2"></div><div class="portal-orbit po-3"></div>
+          <div class="portal-gate"><div class="portal-depth"></div><div class="portal-final-preview" id="portalPreview"><small>her</small><strong>La mulți ani.</strong><span>✦</span></div></div>
+        </div>
+        <div class="portal-caption" id="portalCaption">Portal închis</div><div class="portal-exit" id="portalExit"><div class="portal-exit-content"><small>ULTIMUL CAPITOL</small><strong>Happy <br>Birthday!!!</strong><span>✦</span></div></div>
+      </div>
+    </section>
+
+    <section class="final-section" id="final" data-warp-section><div class="final-content"><p class="overline">Ultimul capitol</p><h2>La mulți ani.</h2><p>Credeai că asta a fost tot?</p><button id="notAllButton" class="button button-light"><span>Deschide surpriza</span><i>✦</i></button></div></section>
+  </main>
+
+  <div class="reveal-finale" id="revealFinale" aria-hidden="true">
+    <canvas id="finaleCanvas"></canvas><div class="portal-ring ring-a"></div><div class="portal-ring ring-b"></div><div class="portal-ring ring-c"></div>
+    <button class="close-finale" id="closeFinale" aria-label="Închide">×</button>
+    <div class="finale-sequence"><p class="line line-1">Mai era un lucru.</p><p class="line line-2">Cel mai important.</p><h2 class="line line-3">Mulțumesc că exiști.</h2><p class="line line-4">Tu ești cea mai strălucitoare parte din universul meu. Contezi foarte mult pentru foarte multe persoane pentru ca esti cel mai bun sufletel din lumea asta sa ai mereu grija de tine si acum si mai tarziu pentru ca nu conteaza ce o sa se intample tu mereu o fi cea mai importanta.</p><div class="final-heart line line-5">♥</div><p class="signature line line-6">C ✦ D</p></div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
